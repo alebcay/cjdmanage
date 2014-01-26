@@ -24,7 +24,7 @@ Syntax and Usage
 Installation
 ------------
 
-cjdmanage is written in Bash. Therefore, no compilation is necessary.
+cjdmanage is written as a Bash shell script. Therefore, no compilation is necessary.
 
 ### One Line Install Method
 **CAUTION: You should *always* review any code that you're asked to pipe from `curl` to `sh` - in this case however, the Bash script is right here in this repository, for your convenience.**
@@ -57,7 +57,7 @@ I'm still working on the one line install method. It should be done pretty soon.
 
 Editing/Modifying
 -----------------
-cjdmanage is a Bash script, so just open it in a text editor and make whatever changes you want. Then save it and run it again.
+cjdmanage is a Bash shell script, so just open it in a text editor and make whatever changes you want. Then save it and run it again.
 
 Contributing
 ------------
