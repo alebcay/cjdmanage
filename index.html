@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="cjdmanage : A command line manager for handling a cjdns installation" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>cjdmanage</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/alebcay/cjdmanage">View on GitHub</a>
+
+          <h1 id="project_title">cjdmanage</h1>
+          <h2 id="project_tagline">A command line manager for handling a cjdns installation</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/alebcay/cjdmanage/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/alebcay/cjdmanage/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h2>
+<a name="overview" class="anchor" href="#overview"><span class="octicon octicon-link"></span></a>Overview</h2>
+
+<p>cjdmanage is a command line manager for managing <a href="http://github.com/cjdelisle/cjdns"><code>cjdns</code></a> (<strong>C</strong>aleb <strong>J</strong>ames <strong>D</strong>eLisle's <strong>N</strong>etwork <strong>S</strong>uite). If you know how to use <code>apt</code> on a *nix system, then you already have the basics of cjdmanage set out for you.</p>
+
+<h2>
+<a name="what-makes-cjdmanage-a-big-freaking-deal" class="anchor" href="#what-makes-cjdmanage-a-big-freaking-deal"><span class="octicon octicon-link"></span></a>What makes cjdmanage a big freaking deal</h2>
+
+<ul>
+<li>Install, remove, update, and manage the cjdroute service all from one program</li>
+<li>Don't have Git? Don't worry! cjdmanage can also download, install, and update with <code>wget</code> or <code>curl</code> instead (for that, you'll need <code>tar</code> or <code>unzip</code> installed though)
+***
+Syntax and Usage
+----------------</li>
+<li>
+<code>cjdmanage install</code> Installs the latest version of <code>cjdns</code> to the subdirectory <code>./cjdns/</code>, pulled fresh from the GitHub repository</li>
+<li>
+<code>cjdmanage remove</code> Removes the installation of <code>cjdns</code> (moves your .conf file to <code>./cjdroute.conf</code> in case you need it)</li>
+<li>
+<code>cjdmanage update</code> Updates the copy of <code>cjdns</code> located in <code>./cjdns/</code> to the latest version pulled from GitHub</li>
+<li>
+<code>cjdmanage start</code> Starts cjdroute</li>
+<li>
+<code>cjdmanage stop</code> Stops all instances of cjdroute
+***
+Installation
+------------
+cjdmanage is written as a Bash shell script. Therefore, no compilation is necessary.
+### One Line Install Method
+<strong>CAUTION: You should <em>always</em> review any code that you're asked to pipe from <code>curl</code> to <code>sh</code> - in this case however, the Bash script is right here in this repository, for your convenience.</strong>
+</li>
+</ul><p>I'm still working on the one line install method. It should be done pretty soon.</p>
+
+<h3>
+<a name="with-git" class="anchor" href="#with-git"><span class="octicon octicon-link"></span></a>With Git</h3>
+
+<ol>
+<li>Pick a convenient location to clone cjdmanage to. cjdns will be installed into a subdirectory of this location, so choose wisely.</li>
+<li><code>git clone https://github.com/alebcay/cjdmanage.git</code></li>
+<li><code>cd cjdmanage</code></li>
+<li><code>chmod +x ./cjdmanage</code></li>
+<li>All set! See "Syntax and Usage" to get started.
+<br>
+</li>
+</ol><p><em>Note: You still need to find peers on Hyperboria or elsewhere in order to get off the ground. cjdmanage (and all the money in the world) can't buy you friends.</em></p>
+
+<hr><h3>
+<a name="without-fussing-with-the-doggone-command-line" class="anchor" href="#without-fussing-with-the-doggone-command-line"><span class="octicon octicon-link"></span></a>Without fussing with the doggone command line</h3>
+
+<ol>
+<li>Download the archive of the latest version:
+
+<ul>
+<li>ZIP: <a href="http://github.com/alebcay/cjdmanage/archive/master.zip">http://github.com/alebcay/cjdmanage/archive/master.zip</a>
+</li>
+<li>TAR.GZ: <a href="http://github.com/alebcay/cjdmanage/archive/master.tar.gz">http://github.com/alebcay/cjdmanage/archive/master.tar.gz</a>
+</li>
+</ul>
+</li>
+<li>Extract contents to a convenient location. cjdns will be installed into a subdirectory of this location, so choose wisely.</li>
+<li>Enter the subdirectory <code>cjdmanage-master</code> (you can actually rename that to whatever you want).</li>
+<li>Give execute permissions to the file <code>cjdmanage</code>.</li>
+<li>In the end, you still need the command line. Maybe that's because it's a <em>command line tool</em>. See "Syntax and Usage" to get started.</li>
+</ol><p><em>Note: You still need to find peers on Hyperboria or elsewhere in order to get off the ground. cjdmanage (and all the money in the world) can't buy you friends.</em></p>
+
+<hr><h2>
+<a name="editingmodifying" class="anchor" href="#editingmodifying"><span class="octicon octicon-link"></span></a>Editing/Modifying</h2>
+
+<p>cjdmanage is a Bash shell script, so just open it in a text editor and make whatever changes you want. Then save it and run it again.</p>
+
+<hr><h2>
+<a name="contributing" class="anchor" href="#contributing"><span class="octicon octicon-link"></span></a>Contributing</h2>
+
+<p>If you care to contribute to cjdmanage, feel free to fork and send pull requests. I'll try my best to review them. If someone would like to make a GUI wrapper for this, I think it would turn out quite nice.</p>
+
+<hr><h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>cjdmanage is released under the Affero GPL (AGPL). See the LICENSE file for more information.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">cjdmanage maintained by <a href="https://github.com/alebcay">alebcay</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
