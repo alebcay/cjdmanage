@@ -1,0 +1,192 @@
+#/bin/bash
+if [ "$#" -eq 0 ]
+then
+    echo "cjdmanage for cjdns v1"
+    echo "usage: cjdmanage [action] (argument/option)"
+    echo "Possible actions:"
+    echo "install       Installs cjdns into the current directory"
+    echo "remove        Removes cjdns from the current directory"
+    echo "update        Updates cjdns in the current directory"
+    echo "start         Starts cjdns"
+    echo "stop          Stops all cjdns processes"
+    echo "help          Shows this help message"
+    exit 0
+fi
+
+if [ "$1" == "install" ]
+then
+    DLMETHOD=0
+    EXTRACTMETHOD=0
+    echo -e "\033[1;34m--> Downloading source tree...\033[22;0m"
+    if [ -d "./cjdns/" ]
+    then
+        echo -e "\033[1;31m--> A copy of cjdns already exists. To update it, run \"cjdmanage update\".\033[22;0m"
+        exit 1
+    fi
+    command -v curl >/dev/null 2>&1 && DLMETHOD=3
+    command -v wget >/dev/null 2>&1 && DLMETHOD=2
+    command -v git >/dev/null 2>&1 && DLMETHOD=1
+    command -v unzip >/dev/null 2>&1 && EXTRACTMETHOD=2
+    command -v tar >/dev/null 2>&1 && EXTRACTMETHOD=1
+    if [ "$DLMETHOD" -eq 1 ]
+    then
+        git clone https://github.com/cjdelisle/cjdns.git >/dev/null 2>&1
+    elif [ "$DLMETHOD" -eq 2 ]
+    then
+        if [ "$EXTRACTMETHOD" -eq 1 ]
+        then
+            wget https://github.com/cjdelisle/cjdns/archive/master.tar.gz >/dev/null 2>&1
+            tar -zxvf master.tar.gz >/dev/null 2>&1
+            mv cjdns-master cjdns
+            rm master.tar.gz
+        elif [ "$EXTRACTMETHOD" -eq 2 ]
+        then
+            wget https://github.com/cjdelisle/cjdns/archive/master.zip >/dev/null 2>&1
+            unzip master >/dev/null 2>&1
+            rm master.zip
+            mv cjdns-master cjdns
+        else
+            echo -e "\033[1;31m--> No extraction method available to continue.\033[22;0m"
+            exit 1
+        fi
+    elif [ "$DLMETHOD" -eq 3 ]
+    then
+        if [ "$EXTRACTMETHOD" -eq 1 ]
+        then
+            curl -Lks https://github.com/cjdelisle/cjdns/archive/master.tar.gz | tar xz ; mv cjdns-master cjdns >/dev/null 2>&1
+        elif [ "$EXTRACTMETHOD" -eq 2 ]
+        then
+            curl -LOks https://github.com/cjdelisle/cjdns/archive/master.zip
+            unzip master >/dev/null 2>&1
+            rm master.zip
+            mv cjdns-master cjdns
+        else
+            echo -e "\033[1;31m--> No extraction method available to continue.\033[22;0m"
+            exit 1
+        fi
+    else
+        echo -e "\033[1;31m--> No download methods available to continue. \033[22;0m"
+        exit 1
+    fi
+    echo -e "\033[1;34m--> Building cjdns...\033[22;0m"
+    cd cjdns
+    ./do -s >/dev/null 2>&1
+    echo -e "\033[1;32m--> Installation completed.\033[22;0m"
+    exit 0
+fi
+
+
+if [ "$1" == "update" ]
+then
+    echo -e "\033[1;31m--> Killing all instances of cjdroute\033[22;0m"
+    killall cjdroute >/dev/null 2>&1
+    echo -e "\033[1;34m--> Updating source tree...\033[22;0m"
+    if [ ! -d "./cjdns/" ]
+    then
+        echo -e "\033[1;31m--> cjdns has not been installed yet. Install the latest version with \"cjdmanage install\".\033[22;0m"
+        exit 1
+    fi
+    DLMETHOD=0
+    EXTRACTMETHOD=0
+    command -v curl >/dev/null 2>&1 && DLMETHOD=3
+    command -v wget >/dev/null 2>&1 && DLMETHOD=2
+    if [ -d "./cjdns/.git" ]
+    then
+        command -v git >/dev/null 2>&1 && DLMETHOD=1
+    fi
+    command -v unzip >/dev/null 2>&1 && EXTRACTMETHOD=2
+    command -v tar >/dev/null 2>&1 && EXTRACTMETHOD=1
+    if [ "$DLMETHOD" -eq 1 ]
+    then
+        cd cjdns
+        git pull origin master >/dev/null 2>&1
+        echo -e "\033[1;34m--> Rebuilding cjdns...\033[22;0m"
+        ./do -s >/dev/null 2>&1
+    elif [ "$DLMETHOD" -eq 2 ]
+    then
+        if [ "$EXTRACTMETHOD" -eq 1 ]
+        then
+            wget https://github.com/cjdelisle/cjdns/archive/master.tar.gz >/dev/null 2>&1
+            tar -zxvf master.tar.gz >/dev/null 2>&1
+            mv cjdns-master cjdns.new
+            rm master.tar.gz
+            cp -rf cjdns.new/* cjdns
+            rm -rf cjdns.new
+        elif [ "$EXTRACTMETHOD" -eq 2 ]
+        then
+            wget https://github.com/cjdelisle/cjdns/archive/master.zip >/dev/null 2>&1
+            unzip master >/dev/null 2>&1
+            rm master.zip
+            mv cjdns-master cjdns.new
+            cp -rf cjdns.new/* cjdns
+            rm -rf cjdns.new
+        else
+            echo -e "\033[1;31m--> No extraction method available to continue.\033[22;0m"
+            exit 1
+        fi
+    elif [ "$DLMETHOD" -eq 3 ]
+    then
+        if [ "$EXTRACTMETHOD" -eq 1 ]
+        then
+            curl -Lks https://github.com/cjdelisle/cjdns/archive/master.tar.gz | tar xz ; mv cjdns-master cjdns.new >/dev/null 2>&1
+            cp -rf cjdns.new/* cjdns
+            rm -rf cjdns.new
+        elif [ "$EXTRACTMETHOD" -eq 2 ]
+        then
+            curl -LOks https://github.com/cjdelisle/cjdns/archive/master.zip
+            unzip master >/dev/null 2>&1
+            rm master.zip
+            mv cjdns-master cjdns.new
+            cp -rf cjdns.new/* cjdns
+            rm -rf cjdns.new
+        else
+            echo -e "\033[1;31m--> No extraction method available to continue.\033[22;0m"
+            exit 1
+        fi
+    else
+        echo -e "\033[1;31m--> No download methods available to continue. \033[22;0m"
+        exit 1
+    fi
+    echo -e "\033[1;32m--> cjdns has been updated.\033[22;0m"
+    exit 0
+fi
+
+
+if [ "$1" == "remove" ]
+then
+    echo -e "\033[1;33m--> Killing all cjdns processes\033[22;0m"
+    killall cjdroute >/dev/null 2>&1
+    echo -e "\033[1;34m--> Backing up configuration file\033[22;0m"
+    if [ -a "cjdns/cjdroute.conf" ]
+    then
+        cp cjdns/cjdroute.conf ./cjdroute.conf.bak
+    fi
+    echo -e "\033[1;34m--> Removing cjdns\033[22;0m"
+    rm -rf cjdns
+    echo -e "\033[1;32m--> cjdns has been successfully removed."
+    exit 0
+fi
+
+if [ "$1" == "start" ]
+then
+    if [ -a "cjdns/cjdroute.conf" ]
+    then
+        echo -e "\033[1;34m--> Found a configuration file\033[22;0m"
+    else
+        echo -e "\033[1;33m--> No configuration file found. Generating one now\033[22;0m"
+        cd cjdns
+        ./cjdroute --genconf > cjdroute.conf
+        echo -e "\033[1;33m--> **IMPORTANT**: You need to find some peers and add them to cjdroute.conf before cjdns will work."
+    fi
+    echo -e "\033[1;34m--> Attempting to start cjdns\033[22;0m"
+    cd cjdns
+    ./cjdroute < cjdroute.conf >/dev/null 2>&1 || ( echo -e "\033[1;31m--> Unable to start cjdns! Ensure that cjdns is not already running.\033[22;0m" ; exit 0 )
+    echo -e "\033[1;32m--> cjdns is now running.\033[22;0m"
+    exit 0
+fi
+
+if [ "$1" == "stop" ]
+then
+    killall cjdroute >/dev/null 2>&1
+    echo -e "\033[1;32m--> Killed all instances of cjdns.\033[22;0m"
+fi
