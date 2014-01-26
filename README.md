@@ -61,4 +61,8 @@ cjdmanage is a Bash script, so just open it in a text editor and make whatever c
 
 Contributing
 ------------
-If you care to contribute to cjdmanage, feel free to fork and send pull requests. I'll try my best to review them.
+If you care to contribute to cjdmanage, feel free to fork and send pull requests. I'll try my best to review them. If someone would like to make a GUI wrapper for this, I think it would turn out quite nice.
+
+License
+-------
+cjdmanage is released under the Affero GPL (AGPL). See the LICENSE file for more information.
