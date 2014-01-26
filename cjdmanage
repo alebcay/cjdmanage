@@ -1,7 +1,7 @@
 #/bin/bash
 if [ "$#" -eq 0 ]
 then
-    echo "cjdmanage for cjdns v1"
+    echo "cjdmanage for cjdns v1.01"
     echo "usage: cjdmanage [action] (argument/option)"
     echo "Possible actions:"
     echo "install       Installs cjdns into the current directory"
@@ -177,6 +177,7 @@ then
         cd cjdns
         ./cjdroute --genconf > cjdroute.conf
         echo -e "\033[1;33m--> **IMPORTANT**: You need to find some peers and add them to cjdroute.conf before cjdns will work."
+        cd ..
     fi
     echo -e "\033[1;34m--> Attempting to start cjdns\033[22;0m"
     cd cjdns
