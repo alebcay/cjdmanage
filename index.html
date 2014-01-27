@@ -7,38 +7,37 @@
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/main.js"></script>
+    <script src="javascripts/respond.js"></script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
     <![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
   </head>
   <body>
-
-      <header>
-        <h1>cjdmanage</h1>
-        <p>The command line manager for handling a cjdns installation</p>
-      </header>
-
-      <div id="banner">
-        <span id="logo"></span>
-
-        <a href="https://github.com/alebcay/cjdmanage" class="button fork"><strong>View On GitHub</strong></a>
-        <div class="downloads">
-          <span>Downloads:</span>
-          <ul>
-            <li><a href="https://github.com/alebcay/cjdmanage/zipball/master" class="button">ZIP</a></li>
-            <li><a href="https://github.com/alebcay/cjdmanage/tarball/master" class="button">TAR</a></li>
-          </ul>
-        </div>
-      </div><!-- end banner -->
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/alebcay/cjdmanage">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/alebcay/cjdmanage/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/alebcay/cjdmanage/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
 
     <div class="wrapper">
-      <nav>
-        <ul></ul>
-      </nav>
+
       <section>
+        <div id="title">
+          <h1>cjdmanage</h1>
+          <p>The command line manager for handling a cjdns installation</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/alebcay">alebcay</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
+
         <h2>
 <a name="overview" class="anchor" href="#overview"><span class="octicon octicon-link"></span></a>Overview</h2>
 
@@ -65,6 +64,8 @@
 <code>cjdmanage start</code> Starts cjdroute</li>
 <li>
 <code>cjdmanage stop</code> Stops all instances of cjdroute</li>
+<li>
+<code>cjdmanage autoupdate</code> Toggles the autoupdate feature</li>
 </ul><h2>
 <a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
 
@@ -82,12 +83,11 @@
 
 <ol>
 <li>Pick a convenient location to clone cjdmanage to. cjdns will be installed into a subdirectory of this location, so choose wisely.</li>
-<li><code>git clone https://github.com/alebcay/cjdmanage.git</code></li>
-<li><code>cd cjdmanage</code></li>
-<li><code>chmod +x ./cjdmanage</code></li>
-<li>All set! See "Syntax and Usage" to get started.
-<br>
-</li>
+<li><pre>
+git clone <a href="https://github.com/alebcay/cjdmanage.git">https://github.com/alebcay/cjdmanage.git</a>
+cd cjdmanage
+chmod +x ./cjdmanage </pre></li>
+<li>All set! See "Syntax and Usage" to get started.</li>
 </ol><p><em>Note: You still need to find peers on Hyperboria or elsewhere in order to get off the ground. cjdmanage (and all the money in the world) can't buy you friends.</em></p>
 
 <h3>
@@ -110,7 +110,7 @@
 </ol><p><em>Note: You still need to find peers on Hyperboria or elsewhere in order to get off the ground. cjdmanage (and all the money in the world) can't buy you friends.</em></p>
 
 <h2>
-<a name="editingmodifying" class="anchor" href="#editingmodifying"><span class="octicon octicon-link"></span></a>Editing/Modifying</h2>
+<a name="modifications" class="anchor" href="#modifications"><span class="octicon octicon-link"></span></a>Modifications</h2>
 
 <p>cjdmanage is a Bash shell script, so just open it in a text editor and make whatever changes you want. Then save it and run it again.</p>
 
@@ -123,11 +123,17 @@
 <a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
 
 <p>cjdmanage is released under the Affero GPL (AGPL). See the LICENSE file for more information.</p>
+
+<h2>
+<a name="changelog" class="anchor" href="#changelog"><span class="octicon octicon-link"></span></a>Changelog</h2>
+
+<p>v1.02 - Added autoupdate feature</p>
+
+<p>v1.01 - fixed critical bug regarding starting <code>cjdns</code> after a config file is generated</p>
+
+<p>v1.00 - initial release</p>
       </section>
-      <footer>
-        <p>Project maintained by <a href="https://github.com/alebcay">alebcay</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
-      </footer>
+
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
     
