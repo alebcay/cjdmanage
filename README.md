@@ -10,7 +10,8 @@ cjdmanage is a command line manager for managing [`cjdns`](http://github.com/cjd
 Features (that are actually worth mentioning)
 ---------------------------------------------
 * Install, remove, update, and manage the cjdroute service all from one program
-* Don't have Git? Don't worry! cjdmanage can also download, install, and update with `wget` or `curl` instead (for that, you'll need `tar` or `unzip` installed though)
+* Don't have `git` installed? Don't worry! cjdmanage can also download, install, and update with `wget` or `curl` instead (for that, you'll need `tar` or `unzip` installed though)
+* Schedule a daily autoupdate for `cjdns` (through `cron`)
 
 Syntax and Usage
 ----------------
