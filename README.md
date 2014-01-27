@@ -3,6 +3,8 @@ cjdmanage
 
 The command line manager for handling a cjdns installation
 
+The latest version is **1.02**.
+
 Overview
 --------
 cjdmanage is a command line manager for managing [`cjdns`](http://github.com/cjdelisle/cjdns) (**C**aleb **J**ames **D**eLisle's **N**etwork **S**uite). If you know how to use `apt` on a *nix system, then you already have the basics of cjdmanage set out for you.
