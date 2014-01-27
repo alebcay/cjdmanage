@@ -1,7 +1,7 @@
 #/bin/bash
 if [ "$#" -eq 0 ]
 then
-    echo "cjdmanage for cjdns v1.01"
+    echo "cjdmanage for cjdns v1.02"
     echo "usage: cjdmanage [action] (argument/option)"
     echo "Possible actions:"
     echo "install       Installs cjdns into the current directory"
@@ -9,6 +9,7 @@ then
     echo "update        Updates cjdns in the current directory"
     echo "start         Starts cjdns"
     echo "stop          Stops all cjdns processes"
+    echo "autoupdate    Toggles whether cjdmanage should automatically update cjdns daily"
     echo "help          Shows this help message"
     exit 0
 fi
@@ -190,4 +191,33 @@ if [ "$1" == "stop" ]
 then
     killall cjdroute >/dev/null 2>&1
     echo -e "\033[1;32m--> Killed all instances of cjdns.\033[22;0m"
+fi
+
+if [ "$1" == "autoupdate" ]
+then
+    if [ -d "./cjdns/" ]
+    then
+        if [ -a "./autoupdate.cronjob" ]
+        then
+            echo -e "\033[1;34m--> Autoupdate cronjob for cjdns was originally ENALBED. Disabling autoupdate.\033[22;0m"
+            crontab -r
+            mv ./autoupdate.cronjob ./autoupdate.cronjob.inactive
+            echo -e "\033[1;32m--> cjdns is configured NOT to autoupdate.\033[22;0m"
+        else
+            echo -e "\033[1;34m--> Autoupdate cronjob for cjdns was originally DISABLED. Enabling autoupdate. \033[22;0m"
+            if [ -a "./autoupdate.cronjob.inactive" ]
+            then
+                mv ./autoupdate.cronjob.inactive ./autoupdate.cronjob
+                crontab ./autoupdate.cronjob
+            else
+                touch ./autoupdate.cronjob
+                echo "* 1 * * * ./cjdmanage update" > ./autoupdate.cronjob
+                crontab ./autoupdate.cronjob
+            fi
+        echo -e "\033[1;32m--> cjdns is configured to check for and install updates once a day. \033[22;0m"
+        fi
+    else
+        echo -e "\033[1;31m--> cjdns has not been installed yet. Install it first with \"cjdmanage install\" before configuring autoupdate.\033[22;0,"
+        exit 1
+    fi
 fi
