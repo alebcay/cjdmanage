@@ -23,6 +23,7 @@ Syntax and Usage
 * `cjdmanage update` Updates the copy of `cjdns` located in `./cjdns/` to the latest version pulled from GitHub
 * `cjdmanage start` Starts cjdroute
 * `cjdmanage stop` Stops all instances of cjdroute
+* `cjdmanage autoupdate` Toggles whether or not cjdmanage should automatically update cjdns for you
 
 Installation
 ------------
