@@ -71,3 +71,8 @@ If you care to contribute to cjdmanage, feel free to fork and send pull requests
 License
 -------
 cjdmanage is released under the Affero GPL (AGPL). See the LICENSE file for more information.
+
+Support This Work
+-----------------
+If for some reason you find this work helpful to you (which at this current stage in development, is unlikely), consider making a small donation:
+<a class="coinbase-button" data-code="4a5f1b84b88ef909ce8c8e6c0e279b3a" data-button-style="donation_large" href="https://coinbase.com/checkouts/4a5f1b84b88ef909ce8c8e6c0e279b3a">Donate Bitcoins</a><script src="https://coinbase.com/assets/button.js" type="text/javascript"></script>
