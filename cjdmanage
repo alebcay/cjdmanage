@@ -261,7 +261,7 @@ then
     fi
     echo -e "\033[1;34m--> Applying updates...\033[22;0m"
     touch tmp_update.sh
-    echo "rm -rf ./cjmanage && mv ./cjdmanage.1 ./cjdmanage && chmod +x ./cjdmanage && ./cjdmanage postupdateclean" > tmp_update.sh
+    echo "rm -rf ./cjmanage && ( [ -a ./cjdmanage.1 ] && mv ./cjdmanage.1 ./cjdmanage ) && chmod +x ./cjdmanage && ./cjdmanage postupdateclean" > tmp_update.sh
     chmod +x ./tmp_update.sh
     echo -e "\033[1;32m--> cjdmanage is now updated to the latest version.\033[22;0m"
     sh tmp_update.sh
