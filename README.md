@@ -5,6 +5,8 @@ The command line manager for handling a cjdns installation
 
 The latest version is **1.03.06**.
 
+[![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=calebxu&url=https://github.com/alebcay/cjdmanage&title=cjdmanage&language=&tags=github&category=software) 
+
 Overview
 --------
 cjdmanage is a command line manager for managing [`cjdns`](http://github.com/cjdelisle/cjdns) (**C**aleb **J**ames **D**eLisle's **N**etwork **S**uite). If you know how to use `apt` on a *nix system, then you already have the basics of cjdmanage set out for you.
@@ -71,9 +73,3 @@ If you care to contribute to cjdmanage, feel free to fork and send pull requests
 License
 -------
 cjdmanage is released under the Affero GPL (AGPL). See the LICENSE file for more information.
-
-Support This Work
------------------
-If for some reason you find this work helpful to you (which at this current stage in development, is unlikely), consider making a small donation:
-[![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=calebxu&url=https://github.com/alebcay/cjdmanage&title=cjdmanage&language=&tags=github&category=software) 
-<a class="coinbase-button" data-code="4a5f1b84b88ef909ce8c8e6c0e279b3a" data-button-style="donation_large" href="https://coinbase.com/checkouts/4a5f1b84b88ef909ce8c8e6c0e279b3a">Donate Bitcoins</a><script src="https://coinbase.com/assets/button.js" type="text/javascript"></script>
