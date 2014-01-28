@@ -38,20 +38,32 @@
           <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
         </div>
 
-        <h2>
-<a name="overview" class="anchor" href="#overview"><span class="octicon octicon-link"></span></a>Overview</h2>
+        <h1>
+<a name="install-now" class="anchor" href="#install-now"><span class="octicon octicon-link"></span></a>Install now!</h1>
+
+<p><strong>CAUTION: You should <em>always</em> review any code that you're asked to execute from <code>curl</code> - in this case however, the code is the program itself - just look at the repository, if you're skeptical.</strong></p>
+
+<pre>
+curl -LOks https://github.com/alebcay/cjdmanage/raw/master/cjdmanage &amp;&amp; chmod +x ./cjdmanage &amp;&amp; ./cjdmanage deployfinish
+</pre>
+
+<h1>
+<a name="details" class="anchor" href="#details"><span class="octicon octicon-link"></span></a>Details</h1>
+
+<h3>
+<a name="overview" class="anchor" href="#overview"><span class="octicon octicon-link"></span></a>Overview</h3>
 
 <p>cjdmanage is a command line manager for managing <a href="http://github.com/cjdelisle/cjdns"><code>cjdns</code></a> (<strong>C</strong>aleb <strong>J</strong>ames <strong>D</strong>eLisle's <strong>N</strong>etwork <strong>S</strong>uite). If you know how to use <code>apt</code> on a *nix system, then you already have the basics of cjdmanage set out for you.</p>
 
-<h2>
-<a name="features" class="anchor" href="#features"><span class="octicon octicon-link"></span></a>Features</h2>
+<h3>
+<a name="features" class="anchor" href="#features"><span class="octicon octicon-link"></span></a>Features</h3>
 
 <ul>
 <li>Install, remove, update, and manage the cjdroute service all from one program</li>
 <li>Don't have <code>git</code> installed? Don't worry! cjdmanage can also download, install, and update with <code>wget</code> or <code>curl</code> instead (for that, you'll need <code>tar</code> or <code>unzip</code> installed though)</li>
 <li>Schedule a daily autoupdate for <code>cjdns</code> (through <code>cron</code>)</li>
-</ul><h2>
-<a name="syntax-and-usage" class="anchor" href="#syntax-and-usage"><span class="octicon octicon-link"></span></a>Syntax and Usage</h2>
+</ul><h3>
+<a name="syntax-and-usage" class="anchor" href="#syntax-and-usage"><span class="octicon octicon-link"></span></a>Syntax and Usage</h3>
 
 <ul>
 <li>
@@ -66,20 +78,18 @@
 <code>cjdmanage stop</code> Stops all instances of cjdroute</li>
 <li>
 <code>cjdmanage autoupdate</code> Toggles the autoupdate feature</li>
-</ul><h2>
-<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+</ul><h3>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h3>
 
 <p>cjdmanage is written as a Bash shell script. Therefore, no compilation is necessary.</p>
 
 <h3>
 <a name="one-line-install-method" class="anchor" href="#one-line-install-method"><span class="octicon octicon-link"></span></a>One Line Install Method</h3>
 
-<p><strong>CAUTION: You should <em>always</em> review any code that you're asked to pipe from <code>curl</code> to <code>sh</code> - in this case however, the Bash script is right here in this repository, for your convenience.</strong></p>
+<p><em>See the top of the page.</em></p>
 
-<p>I'm still working on the one line install method. It should be done pretty soon.</p>
-
-<h3>
-<a name="with-git" class="anchor" href="#with-git"><span class="octicon octicon-link"></span></a>With Git</h3>
+<h4>
+<a name="with-git" class="anchor" href="#with-git"><span class="octicon octicon-link"></span></a>With Git</h4>
 
 <pre>
 $ git clone https://github.com/alebcay/cjdmanage.git
@@ -89,8 +99,8 @@ $ chmod +x ./cjdmanage
 
 <p><em>Note: You still need to find peers on Hyperboria or elsewhere in order to get off the ground. cjdmanage (and all the money in the world) can't buy you friends.</em></p>
 
-<h3>
-<a name="without-fussing-with-the-doggone-command-line" class="anchor" href="#without-fussing-with-the-doggone-command-line"><span class="octicon octicon-link"></span></a>Without fussing with the doggone command line</h3>
+<h4>
+<a name="without-fussing-with-the-doggone-command-line" class="anchor" href="#without-fussing-with-the-doggone-command-line"><span class="octicon octicon-link"></span></a>Without fussing with the doggone command line</h4>
 
 <ol>
 <li>Download the archive of the latest version:
@@ -108,23 +118,25 @@ $ chmod +x ./cjdmanage
 <li>In the end, you still need the command line. Maybe that's because it's a <em>command line tool</em>. See "Syntax and Usage" to get started.</li>
 </ol><p><em>Note: You still need to find peers on Hyperboria or elsewhere in order to get off the ground. cjdmanage (and all the money in the world) can't buy you friends.</em></p>
 
-<h2>
-<a name="modifications" class="anchor" href="#modifications"><span class="octicon octicon-link"></span></a>Modifications</h2>
+<h3>
+<a name="modifications" class="anchor" href="#modifications"><span class="octicon octicon-link"></span></a>Modifications</h3>
 
 <p>cjdmanage is a Bash shell script, so just open it in a text editor and make whatever changes you want. Then save it and run it again.</p>
 
-<h2>
-<a name="contributing" class="anchor" href="#contributing"><span class="octicon octicon-link"></span></a>Contributing</h2>
+<h3>
+<a name="contributing" class="anchor" href="#contributing"><span class="octicon octicon-link"></span></a>Contributing</h3>
 
 <p>If you care to contribute to cjdmanage, feel free to fork and send pull requests. I'll try my best to review them. If someone would like to make a GUI wrapper for this, I think it would turn out quite nice.</p>
 
-<h2>
-<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+<h3>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h3>
 
 <p>cjdmanage is released under the Affero GPL (AGPL). See the LICENSE file for more information.</p>
 
-<h2>
-<a name="changelog" class="anchor" href="#changelog"><span class="octicon octicon-link"></span></a>Changelog</h2>
+<h3>
+<a name="changelog" class="anchor" href="#changelog"><span class="octicon octicon-link"></span></a>Changelog</h3>
+
+<p>v1.03 - Added rebase feature for cjdmanage to self-update, and one-line deploy</p>
 
 <p>v1.02 - Added autoupdate feature</p>
 
