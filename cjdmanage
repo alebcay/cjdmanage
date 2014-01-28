@@ -25,9 +25,9 @@ then
         echo -e "\033[1;31m--> A copy of cjdns already exists. To update it, run \"cjdmanage update\".\033[22;0m"
         exit 1
     fi
-    command -v curl >/dev/null 2>&1 && DLMETHOD=3
     command -v wget >/dev/null 2>&1 && DLMETHOD=2
     command -v git >/dev/null 2>&1 && DLMETHOD=1
+    command -v curl >/dev/null 2>&1 && DLMETHOD=3
     command -v unzip >/dev/null 2>&1 && EXTRACTMETHOD=2
     command -v tar >/dev/null 2>&1 && EXTRACTMETHOD=1
     if [ "$DLMETHOD" -eq 1 ]
@@ -90,12 +90,12 @@ then
     fi
     DLMETHOD=0
     EXTRACTMETHOD=0
-    command -v curl >/dev/null 2>&1 && DLMETHOD=3
     command -v wget >/dev/null 2>&1 && DLMETHOD=2
     if [ -d "./cjdns/.git" ]
     then
         command -v git >/dev/null 2>&1 && DLMETHOD=1
     fi
+    command -v curl >/dev/null 2>&1 && DLMETHOD=3
     command -v unzip >/dev/null 2>&1 && EXTRACTMETHOD=2
     command -v tar >/dev/null 2>&1 && EXTRACTMETHOD=1
     if [ "$DLMETHOD" -eq 1 ]
@@ -232,13 +232,13 @@ fi
 if [ "$1" == "rebase" ]
 then
     DLMETHOD=0
-    command -v curl >/dev/null 2>&1 && DLMETHOD=3
     command -v wget >/dev/null 2>&1 && DLMETHOD=2
     echo -e "\033[1;34m--> Getting updates...\033[22;0m"
     if [ -d "./.git" ]
     then
         command -v git >/dev/null 2>&1 && DLMETHOD=1
     fi
+    command -v curl >/dev/null 2>&1 && DLMETHOD=3
     if [ "$DLMETHOD" -eq 1 ]
     then
         git pull master origin
