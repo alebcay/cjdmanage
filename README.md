@@ -75,4 +75,5 @@ cjdmanage is released under the Affero GPL (AGPL). See the LICENSE file for more
 Support This Work
 -----------------
 If for some reason you find this work helpful to you (which at this current stage in development, is unlikely), consider making a small donation:
+[![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=calebxu&url=https://github.com/alebcay/cjdmanage&title=cjdmanage&language=&tags=github&category=software) 
 <a class="coinbase-button" data-code="4a5f1b84b88ef909ce8c8e6c0e279b3a" data-button-style="donation_large" href="https://coinbase.com/checkouts/4a5f1b84b88ef909ce8c8e6c0e279b3a">Donate Bitcoins</a><script src="https://coinbase.com/assets/button.js" type="text/javascript"></script>
