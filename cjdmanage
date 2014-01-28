@@ -244,7 +244,7 @@ then
         git pull master origin
     elif [ "$DLMETHOD" -eq 2 ]
     then
-        wget https://github.com/alebcay/cjdmanage/raw/master/cjdmanage # >/dev/null 2>&1
+        wget https://github.com/alebcay/cjdmanage/raw/master/cjdmanage >/dev/null 2>&1
         [ -a "./README.md" ] && rm -rf ./README.md
         wget https://github.com/alebcay/cjdmanage/raw/master/README.md >/dev/null 2>&1
         [ -a "./LICENSE" ] && rm -rf ./LICENSE
@@ -260,7 +260,7 @@ then
         echo -e "\033[1;31m--> Failed to rebase/upgrade cjdmanage.\033[22;0m"
     fi
     touch tmp_update.sh
-    echo "rm -rf ./cjmanage && mv ./cjdmaange.1 ./cjdmanage && ./cjdmaanage postupdateclean" > tmp_update.sh
+    echo "rm -rf ./cjmanage && mv ./cjdmanage.1 ./cjdmanage && ./cjdmanage postupdateclean" > tmp_update.sh
     sh tmp_update.sh
 fi
 
