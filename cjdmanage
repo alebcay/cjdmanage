@@ -10,6 +10,7 @@ then
     echo "start         Starts cjdns"
     echo "stop          Stops all cjdns processes"
     echo "autoupdate    Toggles whether cjdmanage should automatically update cjdns daily"
+    echo "rebase        Pull a fresh copy of cjdmanage from the Git repository"
     echo "help          Shows this help message"
     exit 0
 fi
@@ -259,7 +260,7 @@ then
         echo -e "\033[1;31m--> Failed to rebase/upgrade cjdmanage.\033[22;0m"
     fi
     touch tmp_update.sh
-    echo "rm -rf ./cjdroute && mv ./cjdroute.1 ./cjdroute && ./cjdroute postupdateclean" > tmp_update.sh
+    echo "rm -rf ./cjmanage && mv ./cjdmaange.1 ./cjdmanage && ./cjdmaanage postupdateclean" > tmp_update.sh
     sh tmp_update.sh
 fi
 
