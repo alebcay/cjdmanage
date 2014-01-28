@@ -3,7 +3,7 @@ cjdmanage
 
 The command line manager for handling a cjdns installation
 
-The latest version is **1.02**.
+The latest version is **1.03.06**.
 
 Overview
 --------
@@ -24,6 +24,7 @@ Syntax and Usage
 * `cjdmanage start` Starts cjdroute
 * `cjdmanage stop` Stops all instances of cjdroute
 * `cjdmanage autoupdate` Toggles whether or not cjdmanage should automatically update cjdns for you
+* `cjdmanage rebase` Gets the latest version of cjdmanage from GitHub: important for bug fixes, etc.
 
 Installation
 ------------
