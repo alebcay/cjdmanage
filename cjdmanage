@@ -268,6 +268,6 @@ fi
 
 if [ "$1" == "postupdateclean" ]
 then
-    rm -rf ./tmp_update.sh
     echo -e "\033[1;32m--> cjdmanage is now updated to the latest version.\033[22;0m"
+    rm -rf ./tmp_update.sh
 fi
