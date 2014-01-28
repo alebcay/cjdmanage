@@ -260,6 +260,7 @@ then
     fi
     touch tmp_update.sh
     echo "rm -rf ./cjdroute && mv ./cjdroute.1 ./cjdroute && ./cjdroute postupdateclean" > tmp_update.sh
+    sh tmp_update.sh
 fi
 
 if [ "$1" == "postupdateclean" ]
