@@ -234,11 +234,11 @@ then
     DLMETHOD=0
     command -v wget >/dev/null 2>&1 && DLMETHOD=2
     echo -e "\033[1;34m--> Getting updates...\033[22;0m"
+    command -v curl >/dev/null 2>&1 && DLMETHOD=3
     if [ -d "./.git" ]
     then
         command -v git >/dev/null 2>&1 && DLMETHOD=1
     fi
-    command -v curl >/dev/null 2>&1 && DLMETHOD=3
     if [ "$DLMETHOD" -eq 1 ]
     then
         git pull master origin
