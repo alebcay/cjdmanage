@@ -1,3 +1,5 @@
+> **DEPRECATION WARNING:** _This project is no longer being actively maintained. Use it at your own risk. Development may resume in the future, but issues may be ignored or delayed for prolonged periods of time._
+
 cjdmanage
 =========
 
